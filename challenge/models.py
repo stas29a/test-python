@@ -20,7 +20,7 @@ class Patient(Base):
     middle_name = sa.Column(sa.String)
     date_of_birth = sa.Column(sa.Date)
     external_id = sa.Column(sa.String, unique=True)
-    denormalized_amount = sa.Column(sa.Float, nullable=False)
+    denormalized_amount = sa.Column(sa.Float, nullable=False, index=True)
 
 
 class Payment(Base):
