@@ -95,6 +95,7 @@ def import_payments():
         patients = session.query(models.Patient).all()
 
         for patient in patients:
+            patient.denormalized_amount = 0
             patient_id_to_obj[patient.external_id] = patient
 
         for payment in payments:
