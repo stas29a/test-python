@@ -1,11 +1,13 @@
 from flask import Blueprint, jsonify, request
+from challenge import models, Session
 
 api = Blueprint('api', __name__)
 
 
 def patients_get():
-    # TODO: implement
-    return jsonify([])
+    session = Session()
+    patients = session.query(models.Patient).all()
+    return jsonify(patients)
 
 
 def patients_post():
